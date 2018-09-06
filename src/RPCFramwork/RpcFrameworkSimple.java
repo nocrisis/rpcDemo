@@ -1,3 +1,5 @@
+package RPCFramwork;
+
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -7,11 +9,10 @@ import java.lang.reflect.Proxy;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class RpcFramework {
+public class RpcFrameworkSimple {
 
-    /**sss
-     * 暴露服务cc
-     *ss
+    /**
+     * 暴露服务
      * @param service 服务实现
      * @param port    服务端口
      * @throws Exception
@@ -84,6 +85,7 @@ public class RpcFramework {
         if (port <= 0 || port > 65535)
             throw new IllegalArgumentException("Invalid port " + port);
         System.out.println("Get remote service " + interfaceClass.getName() + " from server " + host + ":" + port);
+
         return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class<?>[]{interfaceClass}, new InvocationHandler() {
             public Object invoke(Object proxy, Method method, Object[] arguments) throws Throwable {
                 Socket socket = new Socket(host, port);
