@@ -9,7 +9,7 @@ import java.lang.reflect.Proxy;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class RpcFrameworkSimple {
+public class rpcFrameworkSimple {
 
     /**
      * 暴露服务
