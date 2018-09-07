@@ -24,7 +24,7 @@ public class rpcFrameworkSimple {
             throw new IllegalArgumentException("Invalid port " + port);
         System.out.println("Export service " + service.getClass().getName() + " on port " + port);
         ServerSocket server = new ServerSocket(port);
-        for (; ; ) {
+        while(true) {
             try {
                 final Socket socket = server.accept();
                 new Thread(new Runnable() {
@@ -87,6 +87,7 @@ public class rpcFrameworkSimple {
         System.out.println("Get remote service " + interfaceClass.getName() + " from server " + host + ":" + port);
 
         return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class<?>[]{interfaceClass}, new InvocationHandler() {
+            @Override
             public Object invoke(Object proxy, Method method, Object[] arguments) throws Throwable {
                 Socket socket = new Socket(host, port);
                 try {
