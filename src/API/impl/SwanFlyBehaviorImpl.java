@@ -7,4 +7,9 @@ public class SwanFlyBehaviorImpl implements FlyBehavior {
     public void fly(String bird) {
         System.out.println("优雅的" + bird + "在天上飞");
     }
+
+    @Override
+    public String flyResult(String bird) {
+        return "优雅的" + bird + "在天上飞";
+    }
 }

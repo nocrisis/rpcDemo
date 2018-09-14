@@ -9,12 +9,13 @@ public class rpcConsumer {
         System.out.println("开始引用duck的服务");
         FlyBehavior duckFlyBehavior = ClientReferService.refer(FlyBehavior.class,"192.168.2.63",666);
         System.out.println("开始调用duck的fly方法");
-        duckFlyBehavior.fly("家鸭");
+        String  result = duckFlyBehavior.flyResult("家鸭");
+        System.out.println(result);
 
-        System.out.println("开始引用swan的服务");
+       /* System.out.println("开始引用swan的服务");
         FlyBehavior swanFlyBehavior=ClientReferService.refer(FlyBehavior.class,"192.168.2.63",555);
         System.out.println("开始调用swan的fly方法");
-        swanFlyBehavior.fly("天鹅");
+        swanFlyBehavior.flyResult("天鹅");*/
 
     }
 }
